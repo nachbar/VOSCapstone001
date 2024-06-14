@@ -8,42 +8,33 @@
 def Xform "Root"
 {
     reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial"]
-    def Sphere "Sphere_Right" (
+    def "FishTeapot_full_ObjectMaskOn" (
         active = true
-        prepend apiSchemas = ["MaterialBindingAPI"]
+        prepend references = @FishTeapot_full_ObjectMaskOn.usdz@
     )
     {
-        rel material:binding = </Root/GridMaterial/GridMaterial> (
-            bindMaterialAs = "weakerThanDescendants"
-        )
-        double radius = 0.1
-        quatf xformOp:orient = (1, 0, 0, 0)
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (0.5, 1.5, -1.5)
+        float3 xformOp:scale = (2, 2, 2)
+        float3 xformOp:translate = (-1, 1, -2)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 
-    def Sphere "Sphere_Left" (
+    def "Jungle_full" (
         active = true
-        prepend apiSchemas = ["MaterialBindingAPI"]
+        prepend references = @Jungle_full.usdz@
     )
     {
-        rel material:binding = </Root/GridMaterial/GridMaterial> (
-            bindMaterialAs = "weakerThanDescendants"
-        )
-        double radius = 0.1
-        quatf xformOp:orient = (1, 0, 0, 0)
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (-0.5, 1.5, -1.5)
+        float3 xformOp:scale = (2, 2, 2)
+        float3 xformOp:translate = (0, 1, -2)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 
-    def "GridMaterial" (
+    def "horn_raw_ObjectMaskOn" (
         active = true
-        prepend references = @Materials/GridMaterial.usda@
+        prepend references = @horn_raw_ObjectMaskOn.usdz@
     )
     {
-        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:scale = (2, 2, 2)
+        float3 xformOp:translate = (1, 1, -2)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }

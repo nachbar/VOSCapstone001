@@ -49,6 +49,7 @@ struct ContentView: View {
         .toolbar {
             ToolbarItemGroup(placement: .bottomOrnament) {
                 VStack (spacing: 12) {
+                    /*
                     Button {
                         enlarge.toggle()
                     } label: {
@@ -56,7 +57,7 @@ struct ContentView: View {
                     }
                     .animation(.none, value: 0)
                     .fontWeight(.semibold)
-
+                     */
                     ToggleImmersiveSpaceButton()
                 }
             }

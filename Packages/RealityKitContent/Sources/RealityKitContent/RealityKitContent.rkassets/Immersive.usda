@@ -7,37 +7,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["FishTeapot_full_ObjectMaskOn", "Jungle_full", "horn_raw_ObjectMaskOn", "DirectionalLightFront", "DirectionalLightRight", "DirectionalLightLeft"]
-    def "FishTeapot_full_ObjectMaskOn" (
-        active = true
-        references = @FishTeapot_full_ObjectMaskOn.usdz@
-    )
-    {
-        float3 xformOp:scale = (2, 2, 2)
-        float3 xformOp:translate = (-1, 1, -2)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
-
-    def "Jungle_full" (
-        active = true
-        references = @Jungle_full.usdz@
-    )
-    {
-        float3 xformOp:scale = (2, 2, 2)
-        float3 xformOp:translate = (0, 1, -2)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
-
-    def "horn_raw_ObjectMaskOn" (
-        active = true
-        references = @horn_raw_ObjectMaskOn.usdz@
-    )
-    {
-        float3 xformOp:scale = (2, 2, 2)
-        float3 xformOp:translate = (1, 1, -2)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
-
+    reorder nameChildren = ["FishTeapot", "Jungle", "Horn", "DirectionalLightFront", "DirectionalLightRight", "DirectionalLightLeft"]
     def Xform "DirectionalLightFront" (
         customData = {
             float3 rotationEulerHint = (0, 0, 0)
@@ -96,6 +66,36 @@ def Xform "Root"
             {
             }
         }
+    }
+
+    def "FishTeapot" (
+        active = true
+        references = @FishTeapot_full_ObjectMaskOn.usdz@
+    )
+    {
+        float3 xformOp:scale = (2, 2, 2)
+        float3 xformOp:translate = (-1, 1, -2)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Jungle" (
+        active = true
+        references = @Jungle_full.usdz@
+    )
+    {
+        float3 xformOp:scale = (2, 2, 2)
+        float3 xformOp:translate = (0, 1, -2)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Horn" (
+        active = true
+        references = @horn_raw_ObjectMaskOn.usdz@
+    )
+    {
+        float3 xformOp:scale = (2, 2, 2)
+        float3 xformOp:translate = (1, 1, -2)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
 

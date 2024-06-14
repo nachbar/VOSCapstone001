@@ -7,23 +7,23 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["GridMaterial", "Sphere"]
+    reorder nameChildren = ["GridMaterial", "FishTeapot", "Jungle", "Horn"]
     rel material:binding = None (
         bindMaterialAs = "weakerThanDescendants"
     )
 
     def "GridMaterial" (
         active = true
-        prepend references = @Materials/GridMaterial.usda@
+        references = @Materials/GridMaterial.usda@
     )
     {
         float3 xformOp:scale = (1, 1, 1)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 
-    def "FishTeapot_full_ObjectMaskOn" (
+    def "FishTeapot" (
         active = true
-        prepend references = @FishTeapot_full_ObjectMaskOn.usdz@
+        references = @FishTeapot_full_ObjectMaskOn.usdz@
     )
     {
         float3 xformOp:scale = (1, 1, 1)
@@ -31,9 +31,9 @@ def Xform "Root"
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 
-    def "Jungle_full" (
+    def "Jungle" (
         active = true
-        prepend references = @Jungle_full.usdz@
+        references = @Jungle_full.usdz@
     )
     {
         float3 xformOp:scale = (1, 1, 1)
@@ -41,9 +41,9 @@ def Xform "Root"
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 
-    def "horn_raw_ObjectMaskOn" (
+    def "Horn" (
         active = true
-        prepend references = @horn_raw_ObjectMaskOn.usdz@
+        references = @horn_raw_ObjectMaskOn.usdz@
     )
     {
         float3 xformOp:scale = (1, 1, 1)

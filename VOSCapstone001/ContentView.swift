@@ -12,6 +12,7 @@ import RealityKitContent
 struct ContentView: View {
 
     @State private var enlarge = false
+    @Environment(AppModel.self) private var appModel
 
     var body: some View {
         RealityView { content in
@@ -20,6 +21,22 @@ struct ContentView: View {
                 content.add(scene)
             }
         } update: { content in
+            // Hide RealityKit content when we enter immersive
+            if let scene = content.entities.first {
+                if appModel.immersiveSpaceState == .open
+                    {
+                        scene.isEnabled = false
+                        return
+                    } else {
+                        scene.isEnabled = true
+                        // Update the RealityKit content when SwiftUI state changes
+
+                        let uniformScale: Float = enlarge ? 1.4 : 1.0
+                        scene.transform.scale = [uniformScale, uniformScale, uniformScale]
+                    }
+                }
+            
+            
             // Update the RealityKit content when SwiftUI state changes
             if let scene = content.entities.first {
                 let uniformScale: Float = enlarge ? 1.4 : 1.0

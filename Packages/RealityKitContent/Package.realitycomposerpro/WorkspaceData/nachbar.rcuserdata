@@ -39,6 +39,28 @@
     ],
     "D66134B1-3681-4A8E-AFE5-29F257229F3B" : [
       {
+        "date" : 740034766.675131,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          -0,
+          0,
+          -0,
+          0.7071069,
+          -0.7071067,
+          0,
+          0,
+          0.7071067,
+          0.7071069,
+          0,
+          -0.011422545,
+          1.0246471,
+          0.6996434,
+          1
+        ]
+      },
+      {
         "date" : 740034627.512242,
         "title" : "Untitled",
         "transform" : [
@@ -235,33 +257,11 @@
           0.41434732,
           1
         ]
-      },
-      {
-        "date" : 740034443.052272,
-        "title" : "Untitled",
-        "transform" : [
-          1,
-          0,
-          0,
-          0,
-          0,
-          0.7071069,
-          -0.7071067,
-          0,
-          0,
-          0.7071067,
-          0.7071069,
-          0,
-          -0.020202205,
-          0.105514005,
-          0.0961492,
-          1
-        ]
       }
     ]
   },
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Immersive.usda"
+  "selectedSceneRelativePath" : "Scene.usda"
 }

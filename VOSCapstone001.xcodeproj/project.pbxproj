@@ -7,52 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D2BD363E2C1BEA8100B697EC /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = D2BD363D2C1BEA8100B697EC /* RealityKitContent */; };
-		D2BD36402C1BEA8100B697EC /* VOSCapstone001App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD363F2C1BEA8100B697EC /* VOSCapstone001App.swift */; };
-		D2BD36422C1BEA8100B697EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD36412C1BEA8100B697EC /* ContentView.swift */; };
-		D2BD36442C1BEA8100B697EC /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD36432C1BEA8100B697EC /* AppModel.swift */; };
-		D2BD36462C1BEA8100B697EC /* ToggleImmersiveSpaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD36452C1BEA8100B697EC /* ToggleImmersiveSpaceButton.swift */; };
-		D2BD36482C1BEA8100B697EC /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD36472C1BEA8100B697EC /* ImmersiveView.swift */; };
-		D2BD364A2C1BEA8200B697EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2BD36492C1BEA8200B697EC /* Assets.xcassets */; };
-		D2BD364D2C1BEA8200B697EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2BD364C2C1BEA8200B697EC /* Preview Assets.xcassets */; };
-		D2BD36582C1BEA8200B697EC /* VOSCapstone001Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD36572C1BEA8200B697EC /* VOSCapstone001Tests.swift */; };
+		D2BD36A22C1BFE1800B697EC /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = D2BD36A12C1BFE1800B697EC /* RealityKitContent */; };
+		D2BD36A42C1BFE1800B697EC /* VOSCapstone001App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD36A32C1BFE1800B697EC /* VOSCapstone001App.swift */; };
+		D2BD36A62C1BFE1800B697EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD36A52C1BFE1800B697EC /* ContentView.swift */; };
+		D2BD36A82C1BFE1800B697EC /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD36A72C1BFE1800B697EC /* AppModel.swift */; };
+		D2BD36AA2C1BFE1800B697EC /* ToggleImmersiveSpaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD36A92C1BFE1800B697EC /* ToggleImmersiveSpaceButton.swift */; };
+		D2BD36AC2C1BFE1800B697EC /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD36AB2C1BFE1800B697EC /* ImmersiveView.swift */; };
+		D2BD36AE2C1BFE1900B697EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2BD36AD2C1BFE1900B697EC /* Assets.xcassets */; };
+		D2BD36B12C1BFE1900B697EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2BD36B02C1BFE1900B697EC /* Preview Assets.xcassets */; };
+		D2BD36BC2C1BFE1900B697EC /* VOSCapstone001Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD36BB2C1BFE1900B697EC /* VOSCapstone001Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D2BD36542C1BEA8200B697EC /* PBXContainerItemProxy */ = {
+		D2BD36B82C1BFE1900B697EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D2BD36302C1BEA8100B697EC /* Project object */;
+			containerPortal = D2BD36942C1BFE1800B697EC /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D2BD36372C1BEA8100B697EC;
+			remoteGlobalIDString = D2BD369B2C1BFE1800B697EC;
 			remoteInfo = VOSCapstone001;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D2BD36382C1BEA8100B697EC /* VOSCapstone001.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VOSCapstone001.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2BD363C2C1BEA8100B697EC /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
-		D2BD363F2C1BEA8100B697EC /* VOSCapstone001App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VOSCapstone001App.swift; sourceTree = "<group>"; };
-		D2BD36412C1BEA8100B697EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D2BD36432C1BEA8100B697EC /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
-		D2BD36452C1BEA8100B697EC /* ToggleImmersiveSpaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleImmersiveSpaceButton.swift; sourceTree = "<group>"; };
-		D2BD36472C1BEA8100B697EC /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
-		D2BD36492C1BEA8200B697EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D2BD364C2C1BEA8200B697EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D2BD364E2C1BEA8200B697EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2BD36532C1BEA8200B697EC /* VOSCapstone001Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VOSCapstone001Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2BD36572C1BEA8200B697EC /* VOSCapstone001Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VOSCapstone001Tests.swift; sourceTree = "<group>"; };
+		D2BD369C2C1BFE1800B697EC /* VOSCapstone001.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VOSCapstone001.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2BD36A02C1BFE1800B697EC /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
+		D2BD36A32C1BFE1800B697EC /* VOSCapstone001App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VOSCapstone001App.swift; sourceTree = "<group>"; };
+		D2BD36A52C1BFE1800B697EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D2BD36A72C1BFE1800B697EC /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		D2BD36A92C1BFE1800B697EC /* ToggleImmersiveSpaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleImmersiveSpaceButton.swift; sourceTree = "<group>"; };
+		D2BD36AB2C1BFE1800B697EC /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
+		D2BD36AD2C1BFE1900B697EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D2BD36B02C1BFE1900B697EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D2BD36B22C1BFE1900B697EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2BD36B72C1BFE1900B697EC /* VOSCapstone001Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VOSCapstone001Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2BD36BB2C1BFE1900B697EC /* VOSCapstone001Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VOSCapstone001Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D2BD36352C1BEA8100B697EC /* Frameworks */ = {
+		D2BD36992C1BFE1800B697EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2BD363E2C1BEA8100B697EC /* RealityKitContent in Frameworks */,
+				D2BD36A22C1BFE1800B697EC /* RealityKitContent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2BD36502C1BEA8200B697EC /* Frameworks */ = {
+		D2BD36B42C1BFE1900B697EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -62,60 +62,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D2BD362F2C1BEA8100B697EC = {
+		D2BD36932C1BFE1800B697EC = {
 			isa = PBXGroup;
 			children = (
-				D2BD363A2C1BEA8100B697EC /* VOSCapstone001 */,
-				D2BD363B2C1BEA8100B697EC /* Packages */,
-				D2BD36562C1BEA8200B697EC /* VOSCapstone001Tests */,
-				D2BD36392C1BEA8100B697EC /* Products */,
+				D2BD369E2C1BFE1800B697EC /* VOSCapstone001 */,
+				D2BD369F2C1BFE1800B697EC /* Packages */,
+				D2BD36BA2C1BFE1900B697EC /* VOSCapstone001Tests */,
+				D2BD369D2C1BFE1800B697EC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D2BD36392C1BEA8100B697EC /* Products */ = {
+		D2BD369D2C1BFE1800B697EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2BD36382C1BEA8100B697EC /* VOSCapstone001.app */,
-				D2BD36532C1BEA8200B697EC /* VOSCapstone001Tests.xctest */,
+				D2BD369C2C1BFE1800B697EC /* VOSCapstone001.app */,
+				D2BD36B72C1BFE1900B697EC /* VOSCapstone001Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D2BD363A2C1BEA8100B697EC /* VOSCapstone001 */ = {
+		D2BD369E2C1BFE1800B697EC /* VOSCapstone001 */ = {
 			isa = PBXGroup;
 			children = (
-				D2BD363F2C1BEA8100B697EC /* VOSCapstone001App.swift */,
-				D2BD36412C1BEA8100B697EC /* ContentView.swift */,
-				D2BD36432C1BEA8100B697EC /* AppModel.swift */,
-				D2BD36452C1BEA8100B697EC /* ToggleImmersiveSpaceButton.swift */,
-				D2BD36472C1BEA8100B697EC /* ImmersiveView.swift */,
-				D2BD36492C1BEA8200B697EC /* Assets.xcassets */,
-				D2BD364E2C1BEA8200B697EC /* Info.plist */,
-				D2BD364B2C1BEA8200B697EC /* Preview Content */,
+				D2BD36A32C1BFE1800B697EC /* VOSCapstone001App.swift */,
+				D2BD36A52C1BFE1800B697EC /* ContentView.swift */,
+				D2BD36A72C1BFE1800B697EC /* AppModel.swift */,
+				D2BD36A92C1BFE1800B697EC /* ToggleImmersiveSpaceButton.swift */,
+				D2BD36AB2C1BFE1800B697EC /* ImmersiveView.swift */,
+				D2BD36AD2C1BFE1900B697EC /* Assets.xcassets */,
+				D2BD36B22C1BFE1900B697EC /* Info.plist */,
+				D2BD36AF2C1BFE1900B697EC /* Preview Content */,
 			);
 			path = VOSCapstone001;
 			sourceTree = "<group>";
 		};
-		D2BD363B2C1BEA8100B697EC /* Packages */ = {
+		D2BD369F2C1BFE1800B697EC /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				D2BD363C2C1BEA8100B697EC /* RealityKitContent */,
+				D2BD36A02C1BFE1800B697EC /* RealityKitContent */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
 		};
-		D2BD364B2C1BEA8200B697EC /* Preview Content */ = {
+		D2BD36AF2C1BFE1900B697EC /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				D2BD364C2C1BEA8200B697EC /* Preview Assets.xcassets */,
+				D2BD36B02C1BFE1900B697EC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		D2BD36562C1BEA8200B697EC /* VOSCapstone001Tests */ = {
+		D2BD36BA2C1BFE1900B697EC /* VOSCapstone001Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D2BD36572C1BEA8200B697EC /* VOSCapstone001Tests.swift */,
+				D2BD36BB2C1BFE1900B697EC /* VOSCapstone001Tests.swift */,
 			);
 			path = VOSCapstone001Tests;
 			sourceTree = "<group>";
@@ -123,13 +123,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D2BD36372C1BEA8100B697EC /* VOSCapstone001 */ = {
+		D2BD369B2C1BFE1800B697EC /* VOSCapstone001 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D2BD365B2C1BEA8200B697EC /* Build configuration list for PBXNativeTarget "VOSCapstone001" */;
+			buildConfigurationList = D2BD36BF2C1BFE1900B697EC /* Build configuration list for PBXNativeTarget "VOSCapstone001" */;
 			buildPhases = (
-				D2BD36342C1BEA8100B697EC /* Sources */,
-				D2BD36352C1BEA8100B697EC /* Frameworks */,
-				D2BD36362C1BEA8100B697EC /* Resources */,
+				D2BD36982C1BFE1800B697EC /* Sources */,
+				D2BD36992C1BFE1800B697EC /* Frameworks */,
+				D2BD369A2C1BFE1800B697EC /* Resources */,
 			);
 			buildRules = (
 			);
@@ -137,50 +137,50 @@
 			);
 			name = VOSCapstone001;
 			packageProductDependencies = (
-				D2BD363D2C1BEA8100B697EC /* RealityKitContent */,
+				D2BD36A12C1BFE1800B697EC /* RealityKitContent */,
 			);
 			productName = VOSCapstone001;
-			productReference = D2BD36382C1BEA8100B697EC /* VOSCapstone001.app */;
+			productReference = D2BD369C2C1BFE1800B697EC /* VOSCapstone001.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D2BD36522C1BEA8200B697EC /* VOSCapstone001Tests */ = {
+		D2BD36B62C1BFE1900B697EC /* VOSCapstone001Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D2BD365E2C1BEA8200B697EC /* Build configuration list for PBXNativeTarget "VOSCapstone001Tests" */;
+			buildConfigurationList = D2BD36C22C1BFE1900B697EC /* Build configuration list for PBXNativeTarget "VOSCapstone001Tests" */;
 			buildPhases = (
-				D2BD364F2C1BEA8200B697EC /* Sources */,
-				D2BD36502C1BEA8200B697EC /* Frameworks */,
-				D2BD36512C1BEA8200B697EC /* Resources */,
+				D2BD36B32C1BFE1900B697EC /* Sources */,
+				D2BD36B42C1BFE1900B697EC /* Frameworks */,
+				D2BD36B52C1BFE1900B697EC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D2BD36552C1BEA8200B697EC /* PBXTargetDependency */,
+				D2BD36B92C1BFE1900B697EC /* PBXTargetDependency */,
 			);
 			name = VOSCapstone001Tests;
 			productName = VOSCapstone001Tests;
-			productReference = D2BD36532C1BEA8200B697EC /* VOSCapstone001Tests.xctest */;
+			productReference = D2BD36B72C1BFE1900B697EC /* VOSCapstone001Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D2BD36302C1BEA8100B697EC /* Project object */ = {
+		D2BD36942C1BFE1800B697EC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					D2BD36372C1BEA8100B697EC = {
+					D2BD369B2C1BFE1800B697EC = {
 						CreatedOnToolsVersion = 16.0;
 					};
-					D2BD36522C1BEA8200B697EC = {
+					D2BD36B62C1BFE1900B697EC = {
 						CreatedOnToolsVersion = 16.0;
-						TestTargetID = D2BD36372C1BEA8100B697EC;
+						TestTargetID = D2BD369B2C1BFE1800B697EC;
 					};
 				};
 			};
-			buildConfigurationList = D2BD36332C1BEA8100B697EC /* Build configuration list for PBXProject "VOSCapstone001" */;
+			buildConfigurationList = D2BD36972C1BFE1800B697EC /* Build configuration list for PBXProject "VOSCapstone001" */;
 			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -188,28 +188,28 @@
 				en,
 				Base,
 			);
-			mainGroup = D2BD362F2C1BEA8100B697EC;
-			productRefGroup = D2BD36392C1BEA8100B697EC /* Products */;
+			mainGroup = D2BD36932C1BFE1800B697EC;
+			productRefGroup = D2BD369D2C1BFE1800B697EC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2BD36372C1BEA8100B697EC /* VOSCapstone001 */,
-				D2BD36522C1BEA8200B697EC /* VOSCapstone001Tests */,
+				D2BD369B2C1BFE1800B697EC /* VOSCapstone001 */,
+				D2BD36B62C1BFE1900B697EC /* VOSCapstone001Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D2BD36362C1BEA8100B697EC /* Resources */ = {
+		D2BD369A2C1BFE1800B697EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2BD364D2C1BEA8200B697EC /* Preview Assets.xcassets in Resources */,
-				D2BD364A2C1BEA8200B697EC /* Assets.xcassets in Resources */,
+				D2BD36B12C1BFE1900B697EC /* Preview Assets.xcassets in Resources */,
+				D2BD36AE2C1BFE1900B697EC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2BD36512C1BEA8200B697EC /* Resources */ = {
+		D2BD36B52C1BFE1900B697EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -219,38 +219,38 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D2BD36342C1BEA8100B697EC /* Sources */ = {
+		D2BD36982C1BFE1800B697EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2BD36462C1BEA8100B697EC /* ToggleImmersiveSpaceButton.swift in Sources */,
-				D2BD36422C1BEA8100B697EC /* ContentView.swift in Sources */,
-				D2BD36482C1BEA8100B697EC /* ImmersiveView.swift in Sources */,
-				D2BD36442C1BEA8100B697EC /* AppModel.swift in Sources */,
-				D2BD36402C1BEA8100B697EC /* VOSCapstone001App.swift in Sources */,
+				D2BD36AA2C1BFE1800B697EC /* ToggleImmersiveSpaceButton.swift in Sources */,
+				D2BD36A62C1BFE1800B697EC /* ContentView.swift in Sources */,
+				D2BD36AC2C1BFE1800B697EC /* ImmersiveView.swift in Sources */,
+				D2BD36A82C1BFE1800B697EC /* AppModel.swift in Sources */,
+				D2BD36A42C1BFE1800B697EC /* VOSCapstone001App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2BD364F2C1BEA8200B697EC /* Sources */ = {
+		D2BD36B32C1BFE1900B697EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2BD36582C1BEA8200B697EC /* VOSCapstone001Tests.swift in Sources */,
+				D2BD36BC2C1BFE1900B697EC /* VOSCapstone001Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D2BD36552C1BEA8200B697EC /* PBXTargetDependency */ = {
+		D2BD36B92C1BFE1900B697EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D2BD36372C1BEA8100B697EC /* VOSCapstone001 */;
-			targetProxy = D2BD36542C1BEA8200B697EC /* PBXContainerItemProxy */;
+			target = D2BD369B2C1BFE1800B697EC /* VOSCapstone001 */;
+			targetProxy = D2BD36B82C1BFE1900B697EC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		D2BD36592C1BEA8200B697EC /* Debug */ = {
+		D2BD36BD2C1BFE1900B697EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -313,7 +313,7 @@
 			};
 			name = Debug;
 		};
-		D2BD365A2C1BEA8200B697EC /* Release */ = {
+		D2BD36BE2C1BFE1900B697EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -369,7 +369,7 @@
 			};
 			name = Release;
 		};
-		D2BD365C2C1BEA8200B697EC /* Debug */ = {
+		D2BD36C02C1BFE1900B697EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -395,7 +395,7 @@
 			};
 			name = Debug;
 		};
-		D2BD365D2C1BEA8200B697EC /* Release */ = {
+		D2BD36C12C1BFE1900B697EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -421,7 +421,7 @@
 			};
 			name = Release;
 		};
-		D2BD365F2C1BEA8200B697EC /* Debug */ = {
+		D2BD36C32C1BFE1900B697EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -441,7 +441,7 @@
 			};
 			name = Debug;
 		};
-		D2BD36602C1BEA8200B697EC /* Release */ = {
+		D2BD36C42C1BFE1900B697EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -464,29 +464,29 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D2BD36332C1BEA8100B697EC /* Build configuration list for PBXProject "VOSCapstone001" */ = {
+		D2BD36972C1BFE1800B697EC /* Build configuration list for PBXProject "VOSCapstone001" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D2BD36592C1BEA8200B697EC /* Debug */,
-				D2BD365A2C1BEA8200B697EC /* Release */,
+				D2BD36BD2C1BFE1900B697EC /* Debug */,
+				D2BD36BE2C1BFE1900B697EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D2BD365B2C1BEA8200B697EC /* Build configuration list for PBXNativeTarget "VOSCapstone001" */ = {
+		D2BD36BF2C1BFE1900B697EC /* Build configuration list for PBXNativeTarget "VOSCapstone001" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D2BD365C2C1BEA8200B697EC /* Debug */,
-				D2BD365D2C1BEA8200B697EC /* Release */,
+				D2BD36C02C1BFE1900B697EC /* Debug */,
+				D2BD36C12C1BFE1900B697EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D2BD365E2C1BEA8200B697EC /* Build configuration list for PBXNativeTarget "VOSCapstone001Tests" */ = {
+		D2BD36C22C1BFE1900B697EC /* Build configuration list for PBXNativeTarget "VOSCapstone001Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D2BD365F2C1BEA8200B697EC /* Debug */,
-				D2BD36602C1BEA8200B697EC /* Release */,
+				D2BD36C32C1BFE1900B697EC /* Debug */,
+				D2BD36C42C1BFE1900B697EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -494,11 +494,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D2BD363D2C1BEA8100B697EC /* RealityKitContent */ = {
+		D2BD36A12C1BFE1800B697EC /* RealityKitContent */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RealityKitContent;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = D2BD36302C1BEA8100B697EC /* Project object */;
+	rootObject = D2BD36942C1BFE1800B697EC /* Project object */;
 }

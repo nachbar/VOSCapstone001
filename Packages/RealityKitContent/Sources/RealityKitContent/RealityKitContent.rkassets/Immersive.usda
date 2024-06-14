@@ -7,10 +7,10 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial"]
+    reorder nameChildren = ["FishTeapot_full_ObjectMaskOn", "Jungle_full", "horn_raw_ObjectMaskOn", "DirectionalLightFront", "DirectionalLightRight", "DirectionalLightLeft"]
     def "FishTeapot_full_ObjectMaskOn" (
         active = true
-        prepend references = @FishTeapot_full_ObjectMaskOn.usdz@
+        references = @FishTeapot_full_ObjectMaskOn.usdz@
     )
     {
         float3 xformOp:scale = (2, 2, 2)
@@ -20,7 +20,7 @@ def Xform "Root"
 
     def "Jungle_full" (
         active = true
-        prepend references = @Jungle_full.usdz@
+        references = @Jungle_full.usdz@
     )
     {
         float3 xformOp:scale = (2, 2, 2)
@@ -30,12 +30,70 @@ def Xform "Root"
 
     def "horn_raw_ObjectMaskOn" (
         active = true
-        prepend references = @horn_raw_ObjectMaskOn.usdz@
+        references = @horn_raw_ObjectMaskOn.usdz@
     )
     {
         float3 xformOp:scale = (2, 2, 2)
         float3 xformOp:translate = (1, 1, -2)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Xform "DirectionalLightFront" (
+        customData = {
+            float3 rotationEulerHint = (0, 0, 0)
+        }
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "DirectionalLight"
+        {
+            token info:id = "RealityKit.DirectionalLight"
+            float intensity = 5000
+
+            def RealityKitStruct "Shadow"
+            {
+            }
+        }
+    }
+
+    def Xform "DirectionalLightRight" (
+        customData = {
+            float3 rotationEulerHint = (0, 0.8726645, 0)
+        }
+    )
+    {
+        quatf xformOp:orient = (0.9063078, 0, 0.4226182, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "DirectionalLight"
+        {
+            token info:id = "RealityKit.DirectionalLight"
+
+            def RealityKitStruct "Shadow"
+            {
+            }
+        }
+    }
+
+    def Xform "DirectionalLightLeft" (
+        customData = {
+            float3 rotationEulerHint = (0, -0.8726645, 0)
+        }
+    )
+    {
+        quatf xformOp:orient = (0.9063078, 0, -0.4226182, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "DirectionalLight"
+        {
+            token info:id = "RealityKit.DirectionalLight"
+
+            def RealityKitStruct "Shadow"
+            {
+            }
+        }
     }
 }
 

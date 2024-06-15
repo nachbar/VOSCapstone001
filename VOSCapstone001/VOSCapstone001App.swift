@@ -46,6 +46,7 @@ struct VOSCapstone001App: App {
                 }
                 print("onChange(of: scenePhase) called for ContentView in App, with scenePhase \(scenePhase), newScenePhase \(newScenePhase)")
             }
+            .volumeBaseplateVisibility(appModel.immersiveSpaceState == .open ? .hidden : .automatic)
         }
         .windowStyle(.volumetric)
 
@@ -59,6 +60,6 @@ struct VOSCapstone001App: App {
                     appModel.immersiveSpaceState = .closed
                 }
         }
-        .immersionStyle(selection: .constant(.mixed), in: .mixed)
+        .immersionStyle(selection: .constant(.mixed), in: .mixed, .full, .progressive)
     }
 }

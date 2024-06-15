@@ -20,4 +20,7 @@ class AppModel {
     }
     var immersiveSpaceState = ImmersiveSpaceState.closed
     var closeEntity : Entity? = nil
+    var closeBasePositionX : Float = 0
+    var closeBasePositionY : Float = 0
+    var closeBasePositionZ : Float = 0
 }

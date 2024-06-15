@@ -44,6 +44,9 @@ struct ImmersiveView: View {
                         
                         if let oldEntity = appModel.closeEntity {
                             // we have already moved an entity close, so put it back to its original position
+                            oldEntity.scale.x = appModel.closeBaseScale
+                            oldEntity.scale.y = appModel.closeBaseScale
+                            oldEntity.scale.z = appModel.closeBaseScale
                             oldEntity.position.x = appModel.closeBasePositionX
                             oldEntity.position.y = appModel.closeBasePositionY
                             oldEntity.position.z = appModel.closeBasePositionZ
@@ -58,11 +61,18 @@ struct ImmersiveView: View {
                     appModel.closeBasePositionX = newEntity.position.x
                     appModel.closeBasePositionY = newEntity.position.y
                     appModel.closeBasePositionZ = newEntity.position.z
+                    appModel.closeBaseScale = newEntity.scale.x
                         
-                        newEntity.position.x = 0
-                        newEntity.position.y = 1.30
-                        newEntity.position.z = -0.8
-
+                    newEntity.position.x = 0
+                    newEntity.position.y = 1.30
+                    newEntity.position.z = -0.8
+                        
+                    // don't make the horn too tall.  Reduce its scale from 2.0
+                    if newEntityName == "Horn" {
+                        newEntity.scale.x = 1.3
+                        newEntity.scale.y = 1.3
+                        newEntity.scale.z = 1.3
+                    }
                         
                         
                     }

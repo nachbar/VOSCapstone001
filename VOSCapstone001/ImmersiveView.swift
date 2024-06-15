@@ -32,6 +32,11 @@ struct ImmersiveView: View {
             .onEnded { value in
                 let name = value.entity.name
                 print("got Tap Gesture on \(name)")
+                let pos = value.entity.position
+                print("position \(pos)")
+                if name == "Jungle" {
+                    value.entity.position.z = -0.8
+                }
 
                 /*value.entity.components[PhysicsBodyComponent.self]?.mode = .dynamic
                 value.entity.components[PhysicsMotionComponent.self]?.linearVelocity = [0, 7, -5]

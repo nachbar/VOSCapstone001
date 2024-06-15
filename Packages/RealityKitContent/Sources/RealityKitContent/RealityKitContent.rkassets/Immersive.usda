@@ -86,6 +86,30 @@ def Xform "Root"
         float3 xformOp:scale = (2, 2, 2)
         float3 xformOp:translate = (0, 1, -2)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
+        }
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (0.23067221, 0.27183196, 0.23314838)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (-0.010986719, 0.13591598, -0.014724128)
+                }
+            }
+        }
     }
 
     def "Horn" (

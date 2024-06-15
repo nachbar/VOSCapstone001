@@ -30,7 +30,9 @@ struct ImmersiveView: View {
         TapGesture()
             .targetedToAnyEntity()
             .onEnded { value in
-                print("got Tap Gesture")
+                let name = value.entity.name
+                print("got Tap Gesture on \(name)")
+
                 /*value.entity.components[PhysicsBodyComponent.self]?.mode = .dynamic
                 value.entity.components[PhysicsMotionComponent.self]?.linearVelocity = [0, 7, -5]
                 */

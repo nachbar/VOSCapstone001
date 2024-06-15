@@ -19,8 +19,22 @@ struct ImmersiveView: View {
 
                 // Put skybox here.  See example in World project available at
                 // https://developer.apple.com/
+                //if let fish = content.entities.first?.findEntity(named: "Jungle")
+                //{
+                    
+                //}
             }
-        }
+        }.gesture(tapGesture)
+    }
+    var tapGesture: some Gesture {
+        TapGesture()
+            .targetedToAnyEntity()
+            .onEnded { value in
+                print("got Tap Gesture")
+                /*value.entity.components[PhysicsBodyComponent.self]?.mode = .dynamic
+                value.entity.components[PhysicsMotionComponent.self]?.linearVelocity = [0, 7, -5]
+                */
+            }
     }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealityKit // for Entity
 
 /// Maintains app-wide state
 @MainActor
@@ -18,4 +19,5 @@ class AppModel {
         case open
     }
     var immersiveSpaceState = ImmersiveSpaceState.closed
+    var closeEntity : Entity? = nil
 }

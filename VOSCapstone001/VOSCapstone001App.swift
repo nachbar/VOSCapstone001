@@ -27,7 +27,6 @@ struct VOSCapstone001App: App {
                         switch appModel.immersiveSpaceState {
                             case .open:
                                 appModel.immersiveSpaceState = .inTransition
-                            print("about to await dismissImmersiveSpace")
                                 await dismissImmersiveSpace()
                                 // Don't set immersiveSpaceState to .closed because there
                                 // are multiple paths to ImmersiveView.onDisappear().
@@ -44,7 +43,7 @@ struct VOSCapstone001App: App {
                     }
                     
                 }
-                print("onChange(of: scenePhase) called for ContentView in App, with scenePhase \(scenePhase), newScenePhase \(newScenePhase)")
+                //print("onChange(of: scenePhase) called for ContentView in App, with scenePhase \(scenePhase), newScenePhase \(newScenePhase)")
             }
             .volumeBaseplateVisibility(appModel.immersiveSpaceState == .open ? .hidden : .automatic)
         }

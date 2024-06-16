@@ -29,6 +29,9 @@ class AppModel {
     var startOrientation = Rotation3D.identity
     var startingBaseOrientation = Rotation3D.identity
     
+    var startingTransform : simd_float4x4 = .init()
+    var startingRotationCenter: SIMD3<Float> = .zero
+    
     var originalParentEntity : Entity? = nil
     /*
     var headAnchor: Entity = {

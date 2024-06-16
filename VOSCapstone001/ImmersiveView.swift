@@ -9,6 +9,13 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
+extension float4x4 {
+    init(translation: SIMD3<Float>) {
+        self = matrix_identity_float4x4
+        columns.3 = SIMD4<Float>(translation.x, translation.y, translation.z, 1)
+    }
+}
+
 struct ImmersiveView: View {
 
     @Environment(AppModel.self) private var appModel
@@ -44,6 +51,27 @@ struct ImmersiveView: View {
         .gesture(rotateGesture)
     }
     
+    func getHeight(of entity: Entity) -> Float? {
+        // Our entities doe not have a ModelComponent, but they do have a CollisionComponent
+
+        // Ensure the entity has a CollisionComponent
+        guard let collisionComponent = entity.components[CollisionComponent.self] else {
+            return nil
+        }
+        
+        // Get the extent of the collision shape
+        let shapeCount = collisionComponent.shapes.count
+        let firstShapeBounds = collisionComponent.shapes.first?.bounds
+
+        // Extract the height (Y component of the extent)
+        guard let firstShapeBounds = firstShapeBounds else {
+            return nil
+        }
+        let height = abs(firstShapeBounds.max.y - firstShapeBounds.min.y)
+
+        return height
+    }
+    
     // rotation code based on Apple sample TransformingRealityKitEntitiesUsingGestures
     var rotateGesture: some Gesture {
         RotateGesture3D()
@@ -53,15 +81,56 @@ struct ImmersiveView: View {
                 if !appModel.closeIsRotating {
                     appModel.closeIsRotating = true
                     appModel.startOrientation = .init(entity.orientation(relativeTo: nil))
+                    appModel.startingTransform = entity.transformMatrix(relativeTo: nil)
+                    let entityHeight = getHeight(of: entity)
+                    if let entityHeight = entityHeight {
+                        //print("height of \(entity.name) is \(entityHeight)")
+                        appModel.startingRotationCenter = SIMD3<Float>(0, (entityHeight / 2), 0)
+                    } else {
+                        //print("Unable to obtain height of entity")
+                        appModel.startingRotationCenter = SIMD3<Float>(0, 1, 0) //.zero // entity.position(relativeTo: nil)                    }
+                    }
+
                 }
                 // now, closeIsRotating is true, and we have the original orientation available
                 let rotation = value.rotation
+                
+                // We want to rotate about a point halfway between the bottom and the top,
+                // because rotation around zero is around the base of the entity, which
+                // is not that great.
+                
+                // Therefore, we have already determined the rotation center based on the
+                // height of the entity, based on the difference between max y and min y of
+                // the collision components first shape
+                
+                // Now, we rotate by first translating to the origin, then apply the
+                // rotation, then translate back to where we were
+                
+                // Convert Rotation3DGesture.Value to simd_quatf
+                let axis = SIMD3<Float>(Float(rotation.axis.x), Float(rotation.axis.y), Float(rotation.axis.z))
+                let angle = Float(rotation.angle.radians)
+                let quaternion = simd_quatf(angle: angle, axis: axis)
+                
+                // Calculate the translation to maintain the rotation center
+                let translationToCenter = float4x4(translation: appModel.startingRotationCenter)
+                let translationBack = float4x4(translation: -appModel.startingRotationCenter)
+                let rotationTransform = float4x4(quaternion)
+
+                // Combine the current transform with the new rotation
+                let newTransform = appModel.startingTransform * translationToCenter * rotationTransform * translationBack
+                entity.setTransformMatrix(newTransform, relativeTo: nil)
+                
+                /*
+                 // Alternative rotation code; allows head anchor to move entity while rotating, but
+                 // rotates over the zero position of the entity, which is the bottom rather than the center
+                 
                 let flippedRotation = Rotation3D(angle: rotation.angle,
                                                  axis: RotationAxis3D(x: -rotation.axis.x,
                                                                       y: rotation.axis.y,
                                                                       z: -rotation.axis.z))
                 let newOrientation =    appModel.startOrientation.rotated(by: flippedRotation)
                 entity.setOrientation(.init(newOrientation), relativeTo: nil)
+                */
             }
             .onEnded { value in
                 appModel.closeIsRotating = false
@@ -120,7 +189,7 @@ struct ImmersiveView: View {
                         // code to just position newEntity:
                     newEntity.position.x = 0
                         newEntity.position.y = -0.25
-                        newEntity.position.z = -0.8
+                        newEntity.position.z = -1.0
                         
 
                         

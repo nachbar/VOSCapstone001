@@ -180,9 +180,15 @@ struct ImmersiveView: View {
                         appModel.headAnchor?.addChild(newEntity)
 
                         // code to just position newEntity:
+                        let height = getHeight(of: newEntity) ?? 0.5
+                        print("height of \(newEntityName) is \(height)")
                     newEntity.position.x = 0
-                        newEntity.position.y = -0.25
-                        newEntity.position.z = -1.0
+                        newEntity.position.y = 0 - (height / 2) - 0.25
+                        var zPos = -(height * 3)
+                        if zPos > -1 {
+                            zPos = -1
+                        }
+                        newEntity.position.z = zPos
                         
                     }
             }

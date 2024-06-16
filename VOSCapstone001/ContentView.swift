@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var enlarge = false
     @State private var anchorToHead : Bool = false // local copy, because binding does not appear to work with environment appModel
     
+    @State private var anchorToTable : Bool = false
     @Environment(AppModel.self) private var appModel
 
     var body: some View {
@@ -69,7 +70,23 @@ struct ContentView: View {
                         }
                         .onChange(of: anchorToHead) { oldValue, newValue in
                             appModel.anchorToHead = anchorToHead
-                            print("\(oldValue) \(newValue)")
+                            // can only anchor to one thing
+                            if newValue {
+                                anchorToTable = false
+                                appModel.anchorToTable = false
+                            }
+                        }
+
+                        Toggle(isOn: $anchorToTable) {
+                            Text("Anchor Close Object to Table")
+                        }
+                        .onChange(of: anchorToTable) { oldValue, newValue in
+                            appModel.anchorToTable = anchorToTable
+                            // can only anchor to one thing
+                            if newValue {
+                                anchorToHead = false
+                                appModel.anchorToHead = false
+                            }
                         }
                     } else {
                         // In immersive space, show the button that will show or hide signs, and
@@ -79,7 +96,7 @@ struct ContentView: View {
                         } label: {
                             Text(appModel.showSigns ? "Hide Signs" : "Show Signs")
                         }
-                        Text(anchorToHead ? "Head anchored" : "Not head anchored")
+                        Text(anchorToHead ? "Head anchored" : (anchorToTable ? "Table anchord" : "Not anchored"))
                     }
                 }
             }

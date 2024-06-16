@@ -20,27 +20,6 @@ struct ImmersiveView: View {
 
     @Environment(AppModel.self) private var appModel
     
-    func findRootAnchor(for entity: Entity) -> Entity? {
-        var currentEntity: Entity? = entity
-        print("in findRootAnchor.  Entity is \(currentEntity!)")
-        while let parent = currentEntity?.parent {
-            currentEntity = parent
-            print("  Got a parent: \(parent)")
-            if parent.name == "Root" {
-                print("Got 'Root'; returning it")
-                return parent
-            }
-        }
-        
-        print("  No more parents; we have \(String(describing: currentEntity))")
-        if let anchorEntity = currentEntity as? AnchorEntity {
-            print("  returning root anchor")
-            return anchorEntity
-        }
-        print("  did not find root anchor")
-        return nil
-    }
-    
     var body: some View {
         RealityView { content in
             // Add the initial RealityKit content
@@ -227,25 +206,6 @@ struct ImmersiveView: View {
                             }
                         }
                         
-                    // Use a table anchor
-                        /*
-                        if let rootAnchor = findRootAnchor(for: newEntity) {
-                            print("rootAnchor is \(rootAnchor)")
-                            let tableAnchor = AnchorEntity(.plane(.vertical, classification: .wall, minimumBounds: SIMD2<Float>(0.6, 0.6)))
-                            print("Got tableAnchor: \(tableAnchor)")
-                            print("table anchor position is \(tableAnchor.position)")
-                            if tableAnchor != nil {
-                                rootAnchor.addChild(tableAnchor)
-                                tableAnchor.addChild(newEntity)
-                            } else {
-                                print("Could not get tableAnchor")
-                            }
-                        } else {
-                            print("Could not get root Anchor")
-                        }
-                        */
-                        appModel.tableAnchor?.addChild(newEntity)
-                        
                     // Now, move the selected entity forward, and save that state in the appModel
                     appModel.closeEntity = newEntity
                     appModel.closeBasePositionX = newEntity.position.x
@@ -268,9 +228,19 @@ struct ImmersiveView: View {
                             }
                             newEntity.position.z = zPos
                         } else {
-                            newEntity.position.x = 0
-                            newEntity.position.y = 0 // 1.3
-                            newEntity.position.z = 0 // -1.0
+                            if appModel.anchorToTable {
+                                // Use a table anchor
+                                appModel.tableAnchor?.addChild(newEntity)
+                                newEntity.position.x = 0
+                                newEntity.position.y = 0
+                                newEntity.position.z = 0
+                            } else {
+                                // not anchored
+                                newEntity.position.x = 0
+                                newEntity.position.y = 1.3
+                                newEntity.position.z = -1.0
+                            }
+
                         }
 
                         

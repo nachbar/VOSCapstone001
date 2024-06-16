@@ -38,6 +38,7 @@ struct ImmersiveView: View {
                     appModel.jungleBackY = jungle.position.y
                     
                     if let mazeAttachment = attachments.entity(for: "maze-attach") {
+                        //mazeAttachment.position = [jungle.position.x, jungle.position.y + 0.5, jungle.position.z]
                         mazeAttachment.position = [0, 0.5, 0]
                         jungle.addChild(mazeAttachment)
                     }
@@ -46,11 +47,24 @@ struct ImmersiveView: View {
                 {
                     appModel.fishBackX = fish.position.x
                     appModel.fishBackY = fish.position.y
+                    
+                    if let mazeAttachment = attachments.entity(for: "maze-attach2") {
+                        //mazeAttachment.position = [fish.position.x, fish.position.y + 0.5, fish.position.z]
+                        mazeAttachment.position = [0, 0.5, 0]
+                        fish.addChild(mazeAttachment)
+                    }
+                    
                 }
                 if let horn = content.entities.first?.findEntity(named: "Horn")
                 {
                     appModel.hornBackX = horn.position.x
                     appModel.hornBackY = horn.position.y
+                    /*
+                    if let mazeAttachment = attachments.entity(for: "maze-attach") {
+                        mazeAttachment.position = [horn.position.x, horn.position.y + 0.5, horn.position.z]
+                        horn.parent?.addChild(mazeAttachment)
+                    }
+                    */
                 }
 
                 let tableAnchor = AnchorEntity(.plane(.horizontal, classification: .table, minimumBounds: SIMD2<Float>(0.6, 0.6)))
@@ -69,6 +83,15 @@ struct ImmersiveView: View {
             }
         } attachments: {
             Attachment(id: "maze-attach") {
+                VStack {
+                    Text("Maze").font(.largeTitle)
+                    Text("Drag to tilt the maze").font(.title)
+                    
+                }.padding(.all, 20.0)
+                .frame(maxWidth: 250, maxHeight: 250)
+                .glassBackgroundEffect()
+            };
+            Attachment(id: "maze-attach2") {
                 VStack {
                     Text("Maze").font(.largeTitle)
                     Text("Drag to tilt the maze").font(.title)

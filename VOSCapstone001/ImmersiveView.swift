@@ -38,9 +38,9 @@ struct ImmersiveView: View {
                     appModel.jungleBackY = jungle.position.y
                     
                     if let mazeAttachment = attachments.entity(for: "maze-attach") {
-                        //mazeAttachment.position = [jungle.position.x, jungle.position.y + 0.5, jungle.position.z]
-                        mazeAttachment.position = [0, 0.5, 0]
-                        jungle.addChild(mazeAttachment)
+                        mazeAttachment.position = [jungle.position.x, jungle.position.y + 0.5, jungle.position.z]
+                        //mazeAttachment.position = [0, 0.5, 0]
+                        jungle.parent?.addChild(mazeAttachment)
                     }
                 }
                 if let fish = content.entities.first?.findEntity(named: "FishTeapot")

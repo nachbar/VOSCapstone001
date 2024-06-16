@@ -28,4 +28,18 @@ class AppModel {
     var closeIsRotating : Bool = false
     var startOrientation = Rotation3D.identity
     var startingBaseOrientation = Rotation3D.identity
+    
+    var originalParentEntity : Entity? = nil
+    /*
+    var headAnchor: Entity = {
+        let headAnchor = AnchorEntity(.head)
+        headAnchor.position = [0, 1.5, -0.5]
+        
+        //let radians = -30 * Float.pi / 180
+        //ImmersiveView.rotateEntityAroundYAxis(entity: headAnchor, angle: radians)
+        
+        return headAnchor
+    }()
+     */
+    var headAnchor: Entity? = nil
 }

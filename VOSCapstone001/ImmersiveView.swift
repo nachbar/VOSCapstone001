@@ -25,6 +25,18 @@ struct ImmersiveView: View {
                 {
                     // save the base starting orientation - should be the same for all
                     appModel.startingBaseOrientation = .init(jungle.orientation(relativeTo: nil))
+                    appModel.originalParentEntity = jungle.parent
+                    let headAnchor = AnchorEntity(.head)
+                    /*
+                    headAnchor.addChild(jungle)
+                    jungle.transform = Transform(
+                        scale: [1, 1, 1],
+                        rotation: simd_quatf(angle: 0, axis: [0, 1, 0]),
+                        translation: [0, 0, -0.5] // 0.5 meters in front of the user's head
+                        )
+                     */
+                    content.add(headAnchor)
+                    appModel.headAnchor = headAnchor
                 }
             }
         }
@@ -75,7 +87,9 @@ struct ImmersiveView: View {
                             if appModel.closeIsRotating {
                                 oldEntity.setOrientation(.init(appModel.startOrientation), relativeTo: nil)
                             }
-                            let baseOrientation = appModel.startingBaseOrientation.rotated(by: Rotation3D.identity)
+                            // reparent the entity from the anchor
+                            appModel.originalParentEntity?.addChild(oldEntity)
+                            
                             let axis = simd_float3(0, 1, 0) // Y-axis
                             let angle: Float = 0 // .pi / 4 // that would be 45 degrees
 
@@ -99,10 +113,17 @@ struct ImmersiveView: View {
                     appModel.closeBasePositionY = newEntity.position.y
                     appModel.closeBasePositionZ = newEntity.position.z
                     appModel.closeBaseScale = newEntity.scale.x
-                        
+                     
+                        // instead of setting position, set the headanchor
+                        appModel.headAnchor?.addChild(newEntity)
+
+                        // code to just position newEntity:
                     newEntity.position.x = 0
-                    newEntity.position.y = 1.30
-                        newEntity.position.z = -1.0
+                        newEntity.position.y = -0.25
+                        newEntity.position.z = -0.8
+                        
+
+                        
                         
                     // don't make the horn too tall.  Reduce its scale from 2.0
                         /*

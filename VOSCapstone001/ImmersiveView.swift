@@ -102,7 +102,7 @@ struct ImmersiveView: View {
                         
                     newEntity.position.x = 0
                     newEntity.position.y = 1.30
-                    newEntity.position.z = -0.8
+                        newEntity.position.z = -1.0
                         
                     // don't make the horn too tall.  Reduce its scale from 2.0
                         /*

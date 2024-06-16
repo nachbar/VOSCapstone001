@@ -72,7 +72,14 @@ struct ContentView: View {
                             print("\(oldValue) \(newValue)")
                         }
                     } else {
-                        Text(anchorToHead ? "Close object anchored" : "Close object not anchored")
+                        // In immersive space, show the button that will show or hide signs, and
+                        // provide notification about anchoring
+                        Button {
+                            appModel.showSigns.toggle()
+                        } label: {
+                            Text(appModel.showSigns ? "Hide Signs" : "Show Signs")
+                        }
+                        Text(anchorToHead ? "Head anchored" : "Not head anchored")
                     }
                 }
             }

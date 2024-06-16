@@ -38,7 +38,7 @@ struct ImmersiveView: View {
                     appModel.jungleBackY = jungle.position.y
                     
                     if let mazeAttachment = attachments.entity(for: "maze-attach") {
-                        mazeAttachment.position = [jungle.position.x, jungle.position.y + 0.5, jungle.position.z]
+                        mazeAttachment.position = [jungle.position.x, jungle.position.y + (getHeight(of: jungle) ?? 0) + 0.5, jungle.position.z]
                         //mazeAttachment.position = [0, 0.5, 0]
                         jungle.parent?.addChild(mazeAttachment)
                     }
@@ -49,9 +49,9 @@ struct ImmersiveView: View {
                     appModel.fishBackY = fish.position.y
                     
                     if let mazeAttachment = attachments.entity(for: "maze-attach2") {
-                        //mazeAttachment.position = [fish.position.x, fish.position.y + 0.5, fish.position.z]
-                        mazeAttachment.position = [0, 0.5, 0]
-                        fish.addChild(mazeAttachment)
+                        mazeAttachment.position = [fish.position.x, fish.position.y + (getHeight(of: fish) ?? 0) + 0.5, fish.position.z]
+ 
+                        fish.parent?.addChild(mazeAttachment)
                     }
                     
                 }
@@ -59,12 +59,12 @@ struct ImmersiveView: View {
                 {
                     appModel.hornBackX = horn.position.x
                     appModel.hornBackY = horn.position.y
-                    /*
-                    if let mazeAttachment = attachments.entity(for: "maze-attach") {
-                        mazeAttachment.position = [horn.position.x, horn.position.y + 0.5, horn.position.z]
+                    
+                    if let mazeAttachment = attachments.entity(for: "maze-attach3") {
+                        mazeAttachment.position = [horn.position.x, horn.position.y + (getHeight(of: horn) ?? 0) * 1.5 + 0.5, horn.position.z]
                         horn.parent?.addChild(mazeAttachment)
                     }
-                    */
+                    
                 }
 
                 let tableAnchor = AnchorEntity(.plane(.horizontal, classification: .table, minimumBounds: SIMD2<Float>(0.6, 0.6)))
@@ -90,8 +90,17 @@ struct ImmersiveView: View {
                 }.padding(.all, 20.0)
                 .frame(maxWidth: 250, maxHeight: 250)
                 .glassBackgroundEffect()
-            };
+            }
             Attachment(id: "maze-attach2") {
+                VStack {
+                    Text("Maze").font(.largeTitle)
+                    Text("Drag to tilt the maze").font(.title)
+                    
+                }.padding(.all, 20.0)
+                .frame(maxWidth: 250, maxHeight: 250)
+                .glassBackgroundEffect()
+            }
+            Attachment(id: "maze-attach3") {
                 VStack {
                     Text("Maze").font(.largeTitle)
                     Text("Drag to tilt the maze").font(.title)

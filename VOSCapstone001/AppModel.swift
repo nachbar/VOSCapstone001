@@ -24,4 +24,7 @@ class AppModel {
     var closeBasePositionY : Float = 0
     var closeBasePositionZ : Float = 0
     var closeBaseScale : Float = 1.0
+    
+    var closeIsRotating : Bool = false
+    var startOrientation = Rotation3D.identity
 }

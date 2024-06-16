@@ -26,8 +26,35 @@ struct ImmersiveView: View {
                     
                 //}
             }
-        }.gesture(tapGesture)
+        }
+        .gesture(tapGesture)
+        .gesture(rotateGesture)
     }
+    
+    // rotation code based on Apple sample TransformingRealityKitEntitiesUsingGestures
+    var rotateGesture: some Gesture {
+        RotateGesture3D()
+            .targetedToAnyEntity()
+            .onChanged { value in
+                let entity = value.entity
+                if !appModel.closeIsRotating {
+                    appModel.closeIsRotating = true
+                    appModel.startOrientation = .init(entity.orientation(relativeTo: nil))
+                }
+                // now, closeIsRotating is true, and we have the original orientation available
+                let rotation = value.rotation
+                let flippedRotation = Rotation3D(angle: rotation.angle,
+                                                 axis: RotationAxis3D(x: -rotation.axis.x,
+                                                                      y: rotation.axis.y,
+                                                                      z: -rotation.axis.z))
+                let newOrientation =    appModel.startOrientation.rotated(by: flippedRotation)
+                entity.setOrientation(.init(newOrientation), relativeTo: nil)
+            }
+            .onEnded { value in
+                appModel.closeIsRotating = false
+            }
+    }
+    
     var tapGesture: some Gesture {
         TapGesture()
             .targetedToAnyEntity()

@@ -158,7 +158,6 @@ struct ImmersiveView: View {
         TapGesture()
             .targetedToAnyEntity()
             .onEnded { value in
-                print("Got TapGesture onEnded")
                 let newEntity = value.entity
                     //print("got Tap Gesture on \(name)")
                     //let pos = value.entity.position
@@ -171,9 +170,9 @@ struct ImmersiveView: View {
                         
                         if let oldEntity = appModel.closeEntity {
                             // we have already moved an entity close, so put it back to its original position
-                            if appModel.closeIsRotating {
+                            // reset orientation always if appModel.closeIsRotating {
                                 oldEntity.setOrientation(.init(appModel.startOrientation), relativeTo: nil)
-                            }
+                            //}
                             //oldEntity.setOrientation(simd_quatf(angle: 0, axis: SIMD3<Float>(0, 0, 1)), relativeTo: nil)
                             
                             // reparent the entity from the anchor, if that was used
@@ -207,14 +206,16 @@ struct ImmersiveView: View {
                         }
                         
                     // Now, move the selected entity forward, and save that state in the appModel
-                    appModel.closeEntity = newEntity
-                    appModel.closeBasePositionX = newEntity.position.x
-                    appModel.closeBasePositionY = newEntity.position.y
-                    appModel.closeBasePositionZ = newEntity.position.z
-                    appModel.closeBaseScale = newEntity.scale.x
-                        print("Making \(newEntityName) close; position was \(appModel.closeBasePositionX), \(appModel.closeBasePositionY), \(appModel.closeBasePositionZ), and scale \(appModel.closeBaseScale)")
+                    // always reset the orientation first
+                        newEntity.setOrientation(.init(appModel.startOrientation), relativeTo: nil)
+                        appModel.closeEntity = newEntity
+                        appModel.closeBasePositionX = newEntity.position.x
+                        appModel.closeBasePositionY = newEntity.position.y
+                        appModel.closeBasePositionZ = newEntity.position.z
+                        appModel.closeBaseScale = newEntity.scale.x
+                        //print("Making \(newEntityName) close; position was \(appModel.closeBasePositionX), \(appModel.closeBasePositionY), \(appModel.closeBasePositionZ), and scale \(appModel.closeBaseScale)")
                      
-                        // instead of setting position, maybe set the headanchor based on user request
+                        // instead of setting position, may anchor to head or table based on user request
                         if appModel.anchorToHead {
                             appModel.headAnchor?.addChild(newEntity)
                             // code to just position newEntity:

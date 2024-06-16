@@ -96,7 +96,7 @@ struct ContentView: View {
                         } label: {
                             Text(appModel.showSigns ? "Hide Signs" : "Show Signs")
                         }
-                        Text(anchorToHead ? "Head anchored" : (anchorToTable ? "Table anchord" : "Not anchored"))
+                        Text(anchorToHead ? "Head anchored" : (anchorToTable ? "Table anchored" : "Not anchored"))
                     }
                 }
             }

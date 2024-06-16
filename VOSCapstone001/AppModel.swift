@@ -29,10 +29,10 @@ class AppModel : ObservableObject {
     var jungleBackY : Float = 0
     var jungleBackX : Float = 0
     var fishBackY : Float = 0
-    var fishBackX : Float = 0    
+    var fishBackX : Float = 0
     var hornBackX : Float = 0
     var hornBackY : Float = 0
-
+    
     var closeIsRotating : Bool = false
     var startOrientation = Rotation3D.identity
     var startingBaseOrientation = Rotation3D.identity
@@ -42,18 +42,20 @@ class AppModel : ObservableObject {
     
     var originalParentEntity : Entity? = nil
     /*
-    var headAnchor: Entity = {
-        let headAnchor = AnchorEntity(.head)
-        headAnchor.position = [0, 1.5, -0.5]
-        
-        //let radians = -30 * Float.pi / 180
-        //ImmersiveView.rotateEntityAroundYAxis(entity: headAnchor, angle: radians)
-        
-        return headAnchor
-    }()
+     var headAnchor: Entity = {
+     let headAnchor = AnchorEntity(.head)
+     headAnchor.position = [0, 1.5, -0.5]
+     
+     //let radians = -30 * Float.pi / 180
+     //ImmersiveView.rotateEntityAroundYAxis(entity: headAnchor, angle: radians)
+     
+     return headAnchor
+     }()
      */
     var headAnchor: Entity? = nil
     var anchorToHead : Bool = false
     
     var showSigns : Bool = false
+    
+    var tableAnchor: Entity? = nil
 }

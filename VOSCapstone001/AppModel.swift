@@ -11,7 +11,7 @@ import RealityKit // for Entity
 /// Maintains app-wide state
 @MainActor
 @Observable
-class AppModel {
+class AppModel : ObservableObject {
     let immersiveSpaceID = "ImmersiveSpace"
     enum ImmersiveSpaceState {
         case closed

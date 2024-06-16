@@ -12,6 +12,8 @@ import RealityKitContent
 struct ContentView: View {
 
     @State private var enlarge = false
+    @State private var anchorToHead : Bool = false // local copy, because binding does not appear to work with environment appModel
+    
     @Environment(AppModel.self) private var appModel
 
     var body: some View {
@@ -59,6 +61,13 @@ struct ContentView: View {
                     .fontWeight(.semibold)
                      */
                     ToggleImmersiveSpaceButton()
+                    Toggle(isOn: $anchorToHead) {
+                        Text("Anchor Close Object to Your Head")
+                    }
+                    .onChange(of: anchorToHead) { oldValue, newValue in
+                        appModel.anchorToHead = anchorToHead
+                        print("\(oldValue) \(newValue)")
+                    }
                 }
             }
         }

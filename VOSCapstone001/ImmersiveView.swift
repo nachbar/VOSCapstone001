@@ -170,10 +170,8 @@ struct ImmersiveView: View {
                         
                         if let oldEntity = appModel.closeEntity {
                             // we have already moved an entity close, so put it back to its original position
-                            // reset orientation always if appModel.closeIsRotating {
+                            // reset orientation
                                 oldEntity.setOrientation(.init(appModel.startOrientation), relativeTo: nil)
-                            //}
-                            //oldEntity.setOrientation(simd_quatf(angle: 0, axis: SIMD3<Float>(0, 0, 1)), relativeTo: nil)
                             
                             // reparent the entity from the anchor, if that was used
                             appModel.originalParentEntity?.addChild(oldEntity)

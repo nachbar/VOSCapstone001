@@ -105,11 +105,13 @@ struct ImmersiveView: View {
                     newEntity.position.z = -0.8
                         
                     // don't make the horn too tall.  Reduce its scale from 2.0
-                    if newEntityName == "Horn" {
-                        newEntity.scale.x = 1.3
-                        newEntity.scale.y = 1.3
-                        newEntity.scale.z = 1.3
-                    }
+                        /*
+                        if newEntityName == "Horn" {
+                            newEntity.scale.x = 1.3
+                            newEntity.scale.y = 1.3
+                            newEntity.scale.z = 1.3
+                        }
+                         */
                         
                         
                     }

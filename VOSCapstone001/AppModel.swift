@@ -25,6 +25,14 @@ class AppModel {
     var closeBasePositionZ : Float = 0
     var closeBaseScale : Float = 1.0
     
+    // when objects are rotated in back, the origin can get reset, so be sure to restore it
+    var jungleBackY : Float = 0
+    var jungleBackX : Float = 0
+    var fishBackY : Float = 0
+    var fishBackX : Float = 0    
+    var hornBackX : Float = 0
+    var hornBackY : Float = 0
+
     var closeIsRotating : Bool = false
     var startOrientation = Rotation3D.identity
     var startingBaseOrientation = Rotation3D.identity

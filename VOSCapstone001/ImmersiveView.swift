@@ -33,11 +33,25 @@ struct ImmersiveView: View {
                     // save the base starting orientation - should be the same for all
                     appModel.startingBaseOrientation = .init(jungle.orientation(relativeTo: nil))
                     appModel.originalParentEntity = jungle.parent
-                    let headAnchor = AnchorEntity(.head)
 
-                    content.add(headAnchor)
-                    appModel.headAnchor = headAnchor
+                    appModel.jungleBackX = jungle.position.x
+                    appModel.jungleBackY = jungle.position.y
                 }
+                if let fish = content.entities.first?.findEntity(named: "FishTeapot")
+                {
+                    appModel.fishBackX = fish.position.x
+                    appModel.fishBackY = fish.position.y
+                }
+                if let horn = content.entities.first?.findEntity(named: "Horn")
+                {
+                    appModel.hornBackX = horn.position.x
+                    appModel.hornBackY = horn.position.y
+                }
+
+                let headAnchor = AnchorEntity(.head)
+
+                content.add(headAnchor)
+                appModel.headAnchor = headAnchor
             }
         }
         .gesture(tapGesture)
@@ -53,7 +67,7 @@ struct ImmersiveView: View {
         }
         
         // Get the extent of the collision shape
-        let shapeCount = collisionComponent.shapes.count
+        //let shapeCount = collisionComponent.shapes.count
         let firstShapeBounds = collisionComponent.shapes.first?.bounds
 
         // Extract the height (Y component of the extent)
@@ -149,6 +163,8 @@ struct ImmersiveView: View {
                             if appModel.closeIsRotating {
                                 oldEntity.setOrientation(.init(appModel.startOrientation), relativeTo: nil)
                             }
+                            //oldEntity.setOrientation(simd_quatf(angle: 0, axis: SIMD3<Float>(0, 0, 1)), relativeTo: nil)
+                            
                             // reparent the entity from the anchor
                             appModel.originalParentEntity?.addChild(oldEntity)
                             
@@ -160,9 +176,18 @@ struct ImmersiveView: View {
                             oldEntity.scale.x = appModel.closeBaseScale
                             oldEntity.scale.y = appModel.closeBaseScale
                             oldEntity.scale.z = appModel.closeBaseScale
-                            oldEntity.position.x = appModel.closeBasePositionX
-                            oldEntity.position.y = appModel.closeBasePositionY
-                            oldEntity.position.z = appModel.closeBasePositionZ
+                            var xPos = appModel.jungleBackX
+                            if oldEntity.name == "FishTeapot" {
+                                xPos = appModel.fishBackX
+                            } else {
+                                if oldEntity.name == "Horn" {
+                                    xPos = appModel.hornBackX
+                                }
+                            }
+                            
+                            oldEntity.position.x = xPos // appModel.closeBasePositionX
+                            oldEntity.position.y = appModel.jungleBackY //appModel.closeBasePositionY
+                            oldEntity.position.z = -2.0 // appModel.closeBasePositionZ
                             appModel.closeEntity = nil
                             // if we tapped on the close one, just put it back
                             if oldEntity.name == newEntityName {
@@ -175,6 +200,7 @@ struct ImmersiveView: View {
                     appModel.closeBasePositionY = newEntity.position.y
                     appModel.closeBasePositionZ = newEntity.position.z
                     appModel.closeBaseScale = newEntity.scale.x
+                        print("Making \(newEntityName) close; position was \(appModel.closeBasePositionX), \(appModel.closeBasePositionY), \(appModel.closeBasePositionZ), and scale \(appModel.closeBaseScale)")
                      
                         // instead of setting position, set the headanchor
                         appModel.headAnchor?.addChild(newEntity)

@@ -53,4 +53,5 @@ class AppModel : ObservableObject {
     }()
      */
     var headAnchor: Entity? = nil
+    var anchorToHead : Bool = false
 }

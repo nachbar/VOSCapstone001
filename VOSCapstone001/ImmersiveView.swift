@@ -21,7 +21,7 @@ struct ImmersiveView: View {
     @Environment(AppModel.self) private var appModel
     
     var body: some View {
-        RealityView { content in
+        RealityView { content, attachments in
             // Add the initial RealityKit content
             if let immersiveContentEntity = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
                 content.add(immersiveContentEntity)
@@ -36,6 +36,11 @@ struct ImmersiveView: View {
 
                     appModel.jungleBackX = jungle.position.x
                     appModel.jungleBackY = jungle.position.y
+                    
+                    if let mazeAttachment = attachments.entity(for: "maze-attach") {
+                        mazeAttachment.position = [0, 0.5, 0]
+                        jungle.addChild(mazeAttachment)
+                    }
                 }
                 if let fish = content.entities.first?.findEntity(named: "FishTeapot")
                 {
@@ -61,6 +66,16 @@ struct ImmersiveView: View {
                 
                 content.add(tableAnchor)
                 appModel.tableAnchor = tableAnchor
+            }
+        } attachments: {
+            Attachment(id: "maze-attach") {
+                VStack {
+                    Text("Maze").font(.largeTitle)
+                    Text("Drag to tilt the maze").font(.title)
+                    
+                }.padding(.all, 20.0)
+                .frame(maxWidth: 250, maxHeight: 250)
+                .glassBackgroundEffect()
             }
         }
         .gesture(tapGesture)

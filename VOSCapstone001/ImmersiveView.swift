@@ -56,6 +56,7 @@ struct ImmersiveView: View {
         }
         .gesture(tapGesture)
         .gesture(rotateGesture)
+
     }
     
     func getHeight(of entity: Entity) -> Float? {
@@ -148,6 +149,7 @@ struct ImmersiveView: View {
         TapGesture()
             .targetedToAnyEntity()
             .onEnded { value in
+                print("Got TapGesture onEnded")
                 let newEntity = value.entity
                     //print("got Tap Gesture on \(name)")
                     //let pos = value.entity.position
@@ -165,7 +167,7 @@ struct ImmersiveView: View {
                             }
                             //oldEntity.setOrientation(simd_quatf(angle: 0, axis: SIMD3<Float>(0, 0, 1)), relativeTo: nil)
                             
-                            // reparent the entity from the anchor
+                            // reparent the entity from the anchor, if that was used
                             appModel.originalParentEntity?.addChild(oldEntity)
                             
                             let axis = simd_float3(0, 1, 0) // Y-axis
@@ -202,19 +204,25 @@ struct ImmersiveView: View {
                     appModel.closeBaseScale = newEntity.scale.x
                         print("Making \(newEntityName) close; position was \(appModel.closeBasePositionX), \(appModel.closeBasePositionY), \(appModel.closeBasePositionZ), and scale \(appModel.closeBaseScale)")
                      
-                        // instead of setting position, set the headanchor
-                        appModel.headAnchor?.addChild(newEntity)
-
-                        // code to just position newEntity:
-                        let height = getHeight(of: newEntity) ?? 0.5
-                        print("height of \(newEntityName) is \(height)")
-                    newEntity.position.x = 0
-                        newEntity.position.y = 0 - (height / 2) - 0.25
-                        var zPos = -(height * 3)
-                        if zPos > -1 {
-                            zPos = -1
+                        // instead of setting position, maybe set the headanchor based on user request
+                        if appModel.anchorToHead {
+                            appModel.headAnchor?.addChild(newEntity)
+                            // code to just position newEntity:
+                            let height = getHeight(of: newEntity) ?? 0.5
+                            // print("height of \(newEntityName) is \(height)")
+                            newEntity.position.x = 0
+                            newEntity.position.y = 0 - (height / 2) - 0.25
+                            var zPos = -(height * 3)
+                            if zPos > -1 {
+                                zPos = -1
+                            }
+                            newEntity.position.z = zPos
+                        } else {
+                            newEntity.position.x = 0
+                            newEntity.position.y = 1.3
+                            newEntity.position.z = -1.0
                         }
-                        newEntity.position.z = zPos
+
                         
                     }
             }

@@ -61,12 +61,18 @@ struct ContentView: View {
                     .fontWeight(.semibold)
                      */
                     ToggleImmersiveSpaceButton()
-                    Toggle(isOn: $anchorToHead) {
-                        Text("Anchor Close Object to Your Head")
-                    }
-                    .onChange(of: anchorToHead) { oldValue, newValue in
-                        appModel.anchorToHead = anchorToHead
-                        print("\(oldValue) \(newValue)")
+                    // Only allow toggling of anchor flag while immersive state is closed
+                    if appModel.immersiveSpaceState == .closed
+                    {
+                        Toggle(isOn: $anchorToHead) {
+                            Text("Anchor Close Object to Your Head")
+                        }
+                        .onChange(of: anchorToHead) { oldValue, newValue in
+                            appModel.anchorToHead = anchorToHead
+                            print("\(oldValue) \(newValue)")
+                        }
+                    } else {
+                        Text(anchorToHead ? "Close object anchored" : "Close object not anchored")
                     }
                 }
             }

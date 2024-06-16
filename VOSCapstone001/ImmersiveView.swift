@@ -34,14 +34,7 @@ struct ImmersiveView: View {
                     appModel.startingBaseOrientation = .init(jungle.orientation(relativeTo: nil))
                     appModel.originalParentEntity = jungle.parent
                     let headAnchor = AnchorEntity(.head)
-                    /*
-                    headAnchor.addChild(jungle)
-                    jungle.transform = Transform(
-                        scale: [1, 1, 1],
-                        rotation: simd_quatf(angle: 0, axis: [0, 1, 0]),
-                        translation: [0, 0, -0.5] // 0.5 meters in front of the user's head
-                        )
-                     */
+
                     content.add(headAnchor)
                     appModel.headAnchor = headAnchor
                 }
@@ -191,30 +184,7 @@ struct ImmersiveView: View {
                         newEntity.position.y = -0.25
                         newEntity.position.z = -1.0
                         
-
-                        
-                        
-                    // don't make the horn too tall.  Reduce its scale from 2.0
-                        /*
-                        if newEntityName == "Horn" {
-                            newEntity.scale.x = 1.3
-                            newEntity.scale.y = 1.3
-                            newEntity.scale.z = 1.3
-                        }
-                         */
-                        
-                        
                     }
-                
-                
-                                
-                //if name == "Jungle" {
-                //    value.entity.position.z = -0.8
-                //}
-
-                /*value.entity.components[PhysicsBodyComponent.self]?.mode = .dynamic
-                value.entity.components[PhysicsMotionComponent.self]?.linearVelocity = [0, 7, -5]
-                */
             }
     }
 }

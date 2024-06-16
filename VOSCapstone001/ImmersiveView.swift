@@ -21,10 +21,11 @@ struct ImmersiveView: View {
 
                 // Put skybox here.  See example in World project available at
                 // https://developer.apple.com/
-                //if let fish = content.entities.first?.findEntity(named: "Jungle")
-                //{
-                    
-                //}
+                if let jungle = content.entities.first?.findEntity(named: "Jungle")
+                {
+                    // save the base starting orientation - should be the same for all
+                    appModel.startingBaseOrientation = .init(jungle.orientation(relativeTo: nil))
+                }
             }
         }
         .gesture(tapGesture)
@@ -71,6 +72,15 @@ struct ImmersiveView: View {
                         
                         if let oldEntity = appModel.closeEntity {
                             // we have already moved an entity close, so put it back to its original position
+                            if appModel.closeIsRotating {
+                                oldEntity.setOrientation(.init(appModel.startOrientation), relativeTo: nil)
+                            }
+                            let baseOrientation = appModel.startingBaseOrientation.rotated(by: Rotation3D.identity)
+                            let axis = simd_float3(0, 1, 0) // Y-axis
+                            let angle: Float = 0 // .pi / 4 // that would be 45 degrees
+
+                            let quaternion = simd_quatf(angle: angle, axis: axis)
+                            oldEntity.setOrientation(quaternion, relativeTo: nil)
                             oldEntity.scale.x = appModel.closeBaseScale
                             oldEntity.scale.y = appModel.closeBaseScale
                             oldEntity.scale.z = appModel.closeBaseScale

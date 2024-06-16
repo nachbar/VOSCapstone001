@@ -27,4 +27,5 @@ class AppModel {
     
     var closeIsRotating : Bool = false
     var startOrientation = Rotation3D.identity
+    var startingBaseOrientation = Rotation3D.identity
 }

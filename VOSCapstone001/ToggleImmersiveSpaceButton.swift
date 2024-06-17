@@ -24,9 +24,10 @@ struct ToggleImmersiveSpaceButton: View {
                         // Don't set immersiveSpaceState to .closed because there
                         // are multiple paths to ImmersiveView.onDisappear().
                         // Only set .closed in ImmersiveView.onDisappear().
-
+                        AccessibilityNotification.Announcement("Returning from Immersive Space").post()
                     case .closed:
                         appModel.immersiveSpaceState = .inTransition
+                        AccessibilityNotification.Announcement("Entering Immersive Space").post()
                         switch await openImmersiveSpace(id: appModel.immersiveSpaceID) {
                             case .opened:
                                 // Don't set immersiveSpaceState to .open because there

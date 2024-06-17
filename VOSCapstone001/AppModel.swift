@@ -57,6 +57,9 @@ class AppModel : ObservableObject {
     var anchorToTable : Bool = false
     
     var showSigns : Bool = false
+    var jungleAttach : Entity? = nil
+    var fishAttach : Entity? = nil
+    var hornAttach : Entity? = nil
     
     var tableAnchor: Entity? = nil
 }

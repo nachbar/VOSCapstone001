@@ -37,21 +37,25 @@ struct ImmersiveView: View {
                     appModel.jungleBackX = jungle.position.x
                     appModel.jungleBackY = jungle.position.y
                     
-                    if let mazeAttachment = attachments.entity(for: "maze-attach") {
+                    if let mazeAttachment = attachments.entity(for: "jungle-attach") {
                         mazeAttachment.position = [jungle.position.x, jungle.position.y + (getHeight(of: jungle) ?? 0) + 0.5, jungle.position.z]
                         //mazeAttachment.position = [0, 0.5, 0]
+                        
+                        mazeAttachment.isEnabled = appModel.showSigns
                         jungle.parent?.addChild(mazeAttachment)
-                    }
+                        appModel.jungleAttach = mazeAttachment                    }
                 }
                 if let fish = content.entities.first?.findEntity(named: "FishTeapot")
                 {
                     appModel.fishBackX = fish.position.x
                     appModel.fishBackY = fish.position.y
                     
-                    if let mazeAttachment = attachments.entity(for: "maze-attach2") {
+                    if let mazeAttachment = attachments.entity(for: "fish-attach") {
                         mazeAttachment.position = [fish.position.x, fish.position.y + (getHeight(of: fish) ?? 0) + 0.5, fish.position.z]
  
+                        mazeAttachment.isEnabled = appModel.showSigns
                         fish.parent?.addChild(mazeAttachment)
+                        appModel.fishAttach = mazeAttachment
                     }
                     
                 }
@@ -60,50 +64,55 @@ struct ImmersiveView: View {
                     appModel.hornBackX = horn.position.x
                     appModel.hornBackY = horn.position.y
                     
-                    if let mazeAttachment = attachments.entity(for: "maze-attach3") {
+                    if let mazeAttachment = attachments.entity(for: "horn-attach") {
                         mazeAttachment.position = [horn.position.x, horn.position.y + (getHeight(of: horn) ?? 0) * 1.5 + 0.5, horn.position.z]
+                        
+                        mazeAttachment.isEnabled = appModel.showSigns
                         horn.parent?.addChild(mazeAttachment)
+                        appModel.hornAttach = mazeAttachment
                     }
                     
                 }
 
                 let tableAnchor = AnchorEntity(.plane(.horizontal, classification: .table, minimumBounds: SIMD2<Float>(0.6, 0.6)))
-                print("Got tableAnchor: \(tableAnchor)")
-                print("Table anchor position: \(tableAnchor.position)")
-                
+                content.add(tableAnchor)
+                appModel.tableAnchor = tableAnchor
+
                 let headAnchor = AnchorEntity(.head)
-                print("Got headAnchor: \(headAnchor)")
-                print("Head anchor position: \(headAnchor.position)")
-                
                 content.add(headAnchor)
                 appModel.headAnchor = headAnchor
                 
-                content.add(tableAnchor)
-                appModel.tableAnchor = tableAnchor
             }
-        } attachments: {
-            Attachment(id: "maze-attach") {
+        } update: { value, attachments in
+            //print("Got immersive update call")
+            let showSigns = appModel.showSigns
+            appModel.jungleAttach?.isEnabled = showSigns
+            appModel.fishAttach?.isEnabled = showSigns
+            appModel.hornAttach?.isEnabled = showSigns
+        }
+        attachments: {
+            Attachment(id: "jungle-attach") {
                 VStack {
-                    Text("Maze").font(.largeTitle)
-                    Text("Drag to tilt the maze").font(.title)
+                    Text("Jungle").font(.largeTitle)
+                    Text("This ceramic was purchased and sent from South Africa").font(.title)
                     
                 }.padding(.all, 20.0)
                 .frame(maxWidth: 250, maxHeight: 250)
                 .glassBackgroundEffect()
             }
-            Attachment(id: "maze-attach2") {
+            Attachment(id: "fish-attach") {
                 VStack {
-                    Text("Maze").font(.largeTitle)
-                    Text("Drag to tilt the maze").font(.title)
+                    Text("Fish Teapot").font(.largeTitle)
+                    Text("This ceramic has a spout in the mouth").font(.title)
                     
                 }.padding(.all, 20.0)
                 .frame(maxWidth: 250, maxHeight: 250)
                 .glassBackgroundEffect()
             }
-            Attachment(id: "maze-attach3") {
+            Attachment(id: "horn-attach") {
                 VStack {
-                    Text("Maze").font(.largeTitle)
-                    Text("Drag to tilt the maze").font(.title)
+                    Text("Horn").font(.largeTitle)
+                    Text("This piece is carved from wood").font(.title)
                     
                 }.padding(.all, 20.0)
                 .frame(maxWidth: 250, maxHeight: 250)

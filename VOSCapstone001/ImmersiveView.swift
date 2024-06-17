@@ -74,7 +74,7 @@ struct ImmersiveView: View {
                     
                 }
 
-                let tableAnchor = AnchorEntity(.plane(.horizontal, classification: .table, minimumBounds: SIMD2<Float>(0.6, 0.6)))
+                let tableAnchor = AnchorEntity(.plane(.horizontal, classification: .table, minimumBounds: SIMD2<Float>(0.2, 0.2)))
                 content.add(tableAnchor)
                 appModel.tableAnchor = tableAnchor
 

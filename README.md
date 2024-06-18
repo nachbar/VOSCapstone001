@@ -64,11 +64,11 @@ The app uses three Directional Lights (new in VisionOS 2) for the immersive spac
 
 ## Object Capture
 
-The objects were chosen from home, and object capture performed using an iPhone 12 Pro Max.  The software used was the sample code provided by Apple to demonstrate the API for object capture.  The software code was inspected, but it was used unmodified.  The code was loaded into Xcode 15, compiled, and then run on the iPhone.
+The objects were chosen from home, and object capture performed using an iPhone 12 Pro Max.  The software used was presented at [WWDC23, Meet Object Capture for iOS](https://developer.apple.com/videos/play/wwdc2023/10191/), and the [sample code](https://developer.apple.com/documentation/realitykit/guided-capture-sample) is provided by Apple to demonstrate the API for object capture.  The software code was inspected, but it was used unmodified.  The code was loaded into Xcode 15, compiled, and then run on the iPhone.
 
-The object capture can be completely performed on the iPhone, but only a reduced resolution captured object is available when reconstruction is performed on the device.  However, the API allows, and the sample code uses, the ability to capture enough images for full resolution.  
+The object capture can be completely performed on the iPhone, but only a reduced resolution captured object is available when reconstruction is performed on the device.  However, [the API allows](https://developer.apple.com/videos/play/wwdc2023/10191/?time=1038), and the sample code uses (AppDataModel.swift in the sample code, line 189), the ability to capture enough images for full resolution.  
 
-The image files so captured (as well as the reconstructed object) are placed by the software into a folder accessible in the Files app on iPhone. The image file folder was sent to a MacBook using AirDrop, and then Reality Composer Pro was used to reconstruct the objects in full or raw resolution, and those reconstructed objects were used in the app.
+The image files so captured (as well as the reconstructed object) are placed by the software into a folder accessible in the Files app on iPhone. The image file folder was sent to a MacBook using AirDrop, and then Reality Composer Pro 2.0 (File/New/Object Capture Model) was used to reconstruct the objects in full or raw resolution, and those reconstructed objects were used in the app.
 
 ## Known Issues
 
